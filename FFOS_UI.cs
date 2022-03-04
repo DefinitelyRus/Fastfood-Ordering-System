@@ -27,5 +27,30 @@ namespace FastfoodOrderingSystem
         {
             Console.WriteLine(FFOS_UI.ActiveForm.Controls.Count);
         }
+
+        private void itemCountPlusOneButton_OnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemCountMinusOneButton_OnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void purchaseButton_OnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addToCartButton_OnClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void itemCount_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

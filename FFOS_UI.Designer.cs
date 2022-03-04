@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.cartListPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cartPanelLabel = new System.Windows.Forms.Label();
             this.purchaseButton = new System.Windows.Forms.Button();
             this.itemCountPlusOneButton = new System.Windows.Forms.Button();
             this.itemCountMinusOneButton = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cartListPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.cartListPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cartListPanel.Controls.Add(this.label1);
+            this.cartListPanel.Controls.Add(this.cartPanelLabel);
             this.cartListPanel.Controls.Add(this.purchaseButton);
             this.cartListPanel.Controls.Add(this.itemCountPlusOneButton);
             this.cartListPanel.Controls.Add(this.itemCountMinusOneButton);
@@ -63,25 +63,26 @@
             this.cartListPanel.Size = new System.Drawing.Size(370, 261);
             this.cartListPanel.TabIndex = 5;
             // 
-            // label1
+            // cartPanelLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Cart";
+            this.cartPanelLabel.AutoSize = true;
+            this.cartPanelLabel.Location = new System.Drawing.Point(6, 5);
+            this.cartPanelLabel.Name = "cartPanelLabel";
+            this.cartPanelLabel.Size = new System.Drawing.Size(29, 15);
+            this.cartPanelLabel.TabIndex = 5;
+            this.cartPanelLabel.Text = "Cart";
             // 
             // purchaseButton
             // 
             this.purchaseButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.purchaseButton.Location = new System.Drawing.Point(292, 231);
+            this.purchaseButton.Location = new System.Drawing.Point(283, 231);
             this.purchaseButton.Name = "purchaseButton";
-            this.purchaseButton.Size = new System.Drawing.Size(73, 23);
+            this.purchaseButton.Size = new System.Drawing.Size(82, 23);
             this.purchaseButton.TabIndex = 4;
-            this.purchaseButton.Text = "Purchase";
+            this.purchaseButton.Text = "Place Order";
             this.purchaseButton.UseVisualStyleBackColor = true;
+            this.purchaseButton.Click += new System.EventHandler(this.purchaseButton_OnClick);
             // 
             // itemCountPlusOneButton
             // 
@@ -93,6 +94,7 @@
             this.itemCountPlusOneButton.TabIndex = 3;
             this.itemCountPlusOneButton.Text = "+1";
             this.itemCountPlusOneButton.UseVisualStyleBackColor = true;
+            this.itemCountPlusOneButton.Click += new System.EventHandler(this.itemCountPlusOneButton_OnClick);
             // 
             // itemCountMinusOneButton
             // 
@@ -104,6 +106,7 @@
             this.itemCountMinusOneButton.TabIndex = 2;
             this.itemCountMinusOneButton.Text = "-1";
             this.itemCountMinusOneButton.UseVisualStyleBackColor = true;
+            this.itemCountMinusOneButton.Click += new System.EventHandler(this.itemCountMinusOneButton_OnClick);
             // 
             // selectedCartItemLabel
             // 
@@ -111,11 +114,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.selectedCartItemLabel.Location = new System.Drawing.Point(79, 231);
             this.selectedCartItemLabel.Name = "selectedCartItemLabel";
-            this.selectedCartItemLabel.Size = new System.Drawing.Size(205, 23);
+            this.selectedCartItemLabel.Size = new System.Drawing.Size(198, 23);
             this.selectedCartItemLabel.TabIndex = 1;
             this.selectedCartItemLabel.Text = "Menu Item Name Here";
             this.selectedCartItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.selectedCartItemLabel.Click += new System.EventHandler(this.selectedCartItemLabel_Click);
             // 
             // cartItemTable
             // 
@@ -189,12 +191,14 @@
             this.menuTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.menuTable.AutoScroll = true;
+            this.menuTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.menuTable.BackColor = System.Drawing.SystemColors.Control;
             this.menuTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.menuTable.ColumnCount = 2;
             this.menuTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.90571F));
             this.menuTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.09429F));
             this.menuTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.menuTable.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.menuTable.Location = new System.Drawing.Point(12, 12);
             this.menuTable.Name = "menuTable";
             this.menuTable.RowCount = 50;
@@ -291,6 +295,7 @@
             this.addToCartButton.TabIndex = 10;
             this.addToCartButton.Text = "Add to cart";
             this.addToCartButton.UseVisualStyleBackColor = true;
+            this.addToCartButton.Click += new System.EventHandler(this.addToCartButton_OnClick);
             // 
             // itemCountCounter
             // 
@@ -298,6 +303,7 @@
             this.itemCountCounter.Name = "itemCountCounter";
             this.itemCountCounter.Size = new System.Drawing.Size(105, 23);
             this.itemCountCounter.TabIndex = 11;
+            this.itemCountCounter.ValueChanged += new System.EventHandler(this.itemCount_ValueChanged);
             // 
             // FFOS_UI
             // 
@@ -330,7 +336,7 @@
         private Panel cartListPanel;
         public TableLayoutPanel menuTable;
         public Label selectedCartItemLabel;
-        private Label label1;
+        private Label cartPanelLabel;
         public PictureBox itemImage;
         public Label itemNameLabel;
         public Label itemPriceLabel;
