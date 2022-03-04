@@ -1,3 +1,5 @@
+using System;
+
 namespace FastfoodOrderingSystem
 {
     internal static class MasterClass
@@ -8,10 +10,12 @@ namespace FastfoodOrderingSystem
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            Console.WriteLine("Hello start!~");
             ApplicationConfiguration.Initialize();
             Application.Run(new FFOS_UI());
+
+            
+            Console.WriteLine("Hello there!~");
         }
     }
 }

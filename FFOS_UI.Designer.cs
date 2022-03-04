@@ -339,6 +339,6 @@
         public Button itemCountMinusOneButton;
         public Button itemCountPlusOneButton;
         public Button purchaseButton;
-        public Button addToCartButton;
+        private Button addToCartButton;
     }
 }

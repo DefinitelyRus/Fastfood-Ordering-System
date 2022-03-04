@@ -7,6 +7,12 @@ namespace FastfoodOrderingSystem
             InitializeComponent();
         }
 
+        public void addToCartButton_Click(object sender, EventArgs e)
+        {
+            //I have no idea where the event activation is.
+            Console.WriteLine("Hello!");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -19,7 +25,7 @@ namespace FastfoodOrderingSystem
 
         private void label3_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine(FFOS_UI.ActiveForm.Controls.Count);
         }
     }
 }
