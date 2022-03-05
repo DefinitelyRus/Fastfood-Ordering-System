@@ -1,8 +1,8 @@
 namespace FastfoodOrderingSystem
 {
-    public partial class FFOS_UI : Form
+    public partial class formUI : Form
     {
-        public FFOS_UI()
+        public formUI()
         {
             InitializeComponent();
         }
@@ -10,22 +10,13 @@ namespace FastfoodOrderingSystem
         public void addToCartButton_Click(object sender, EventArgs e)
         {
             //I have no idea where the event activation is.
+            //Found it lol
             Console.WriteLine("Hello!");
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void selectedCartItemLabel_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(FFOS_UI.ActiveForm.Controls.Count);
         }
 
         private void itemCountPlusOneButton_OnClick(object sender, EventArgs e)
@@ -49,6 +40,26 @@ namespace FastfoodOrderingSystem
         }
 
         private void itemCount_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuDataGrid_RowSelected(object sender, EventArgs e)
+        {
+            Console.WriteLine("ROW SELECTED");
+        }
+
+        private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void menuDataGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.WriteLine("ROW ENTERED");
+        }
+
+        private void formUI_Shown(object sender, EventArgs e)
         {
 
         }

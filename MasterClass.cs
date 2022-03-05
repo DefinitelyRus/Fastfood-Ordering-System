@@ -10,12 +10,8 @@ namespace FastfoodOrderingSystem
         [STAThread]
         static void Main()
         {
-            Console.WriteLine("Hello start!~");
             ApplicationConfiguration.Initialize();
-            Application.Run(new FFOS_UI());
-
-            
-            Console.WriteLine("Hello there!~");
+            Application.Run(new formUI());
         }
     }
 }

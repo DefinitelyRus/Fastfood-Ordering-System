@@ -1,6 +1,6 @@
 ﻿namespace FastfoodOrderingSystem
 {
-    partial class FFOS_UI
+    partial class formUI
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,232 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cartListPanel = new System.Windows.Forms.Panel();
-            this.cartPanelLabel = new System.Windows.Forms.Label();
-            this.purchaseButton = new System.Windows.Forms.Button();
-            this.itemCountPlusOneButton = new System.Windows.Forms.Button();
-            this.itemCountMinusOneButton = new System.Windows.Forms.Button();
-            this.selectedCartItemLabel = new System.Windows.Forms.Label();
-            this.cartItemTable = new System.Windows.Forms.TableLayoutPanel();
-            this.menuTable = new System.Windows.Forms.TableLayoutPanel();
             this.itemImage = new System.Windows.Forms.PictureBox();
             this.itemNameLabel = new System.Windows.Forms.Label();
             this.itemPriceLabel = new System.Windows.Forms.Label();
             this.addToCartButton = new System.Windows.Forms.Button();
             this.itemCountCounter = new System.Windows.Forms.NumericUpDown();
-            this.cartListPanel.SuspendLayout();
+            this.menuDataGrid = new System.Windows.Forms.DataGridView();
+            this.ItemImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selectedCartItemLabel = new System.Windows.Forms.Label();
+            this.itemCountMinusOneButton = new System.Windows.Forms.Button();
+            this.itemCountPlusOneButton = new System.Windows.Forms.Button();
+            this.purchaseButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cartDataGrid = new System.Windows.Forms.DataGridView();
+            this.cartItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemCountCounter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuDataGrid)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cartDataGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // cartListPanel
-            // 
-            this.cartListPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cartListPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.cartListPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cartListPanel.Controls.Add(this.cartPanelLabel);
-            this.cartListPanel.Controls.Add(this.purchaseButton);
-            this.cartListPanel.Controls.Add(this.itemCountPlusOneButton);
-            this.cartListPanel.Controls.Add(this.itemCountMinusOneButton);
-            this.cartListPanel.Controls.Add(this.selectedCartItemLabel);
-            this.cartListPanel.Controls.Add(this.cartItemTable);
-            this.cartListPanel.Location = new System.Drawing.Point(402, 168);
-            this.cartListPanel.Name = "cartListPanel";
-            this.cartListPanel.Size = new System.Drawing.Size(370, 261);
-            this.cartListPanel.TabIndex = 5;
-            // 
-            // cartPanelLabel
-            // 
-            this.cartPanelLabel.AutoSize = true;
-            this.cartPanelLabel.Location = new System.Drawing.Point(6, 5);
-            this.cartPanelLabel.Name = "cartPanelLabel";
-            this.cartPanelLabel.Size = new System.Drawing.Size(29, 15);
-            this.cartPanelLabel.TabIndex = 5;
-            this.cartPanelLabel.Text = "Cart";
-            // 
-            // purchaseButton
-            // 
-            this.purchaseButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.purchaseButton.Location = new System.Drawing.Point(283, 231);
-            this.purchaseButton.Name = "purchaseButton";
-            this.purchaseButton.Size = new System.Drawing.Size(82, 23);
-            this.purchaseButton.TabIndex = 4;
-            this.purchaseButton.Text = "Place Order";
-            this.purchaseButton.UseVisualStyleBackColor = true;
-            this.purchaseButton.Click += new System.EventHandler(this.purchaseButton_OnClick);
-            // 
-            // itemCountPlusOneButton
-            // 
-            this.itemCountPlusOneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemCountPlusOneButton.Location = new System.Drawing.Point(3, 231);
-            this.itemCountPlusOneButton.Name = "itemCountPlusOneButton";
-            this.itemCountPlusOneButton.Size = new System.Drawing.Size(30, 23);
-            this.itemCountPlusOneButton.TabIndex = 3;
-            this.itemCountPlusOneButton.Text = "+1";
-            this.itemCountPlusOneButton.UseVisualStyleBackColor = true;
-            this.itemCountPlusOneButton.Click += new System.EventHandler(this.itemCountPlusOneButton_OnClick);
-            // 
-            // itemCountMinusOneButton
-            // 
-            this.itemCountMinusOneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemCountMinusOneButton.Location = new System.Drawing.Point(41, 231);
-            this.itemCountMinusOneButton.Name = "itemCountMinusOneButton";
-            this.itemCountMinusOneButton.Size = new System.Drawing.Size(30, 23);
-            this.itemCountMinusOneButton.TabIndex = 2;
-            this.itemCountMinusOneButton.Text = "-1";
-            this.itemCountMinusOneButton.UseVisualStyleBackColor = true;
-            this.itemCountMinusOneButton.Click += new System.EventHandler(this.itemCountMinusOneButton_OnClick);
-            // 
-            // selectedCartItemLabel
-            // 
-            this.selectedCartItemLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectedCartItemLabel.Location = new System.Drawing.Point(79, 231);
-            this.selectedCartItemLabel.Name = "selectedCartItemLabel";
-            this.selectedCartItemLabel.Size = new System.Drawing.Size(198, 23);
-            this.selectedCartItemLabel.TabIndex = 1;
-            this.selectedCartItemLabel.Text = "Menu Item Name Here";
-            this.selectedCartItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cartItemTable
-            // 
-            this.cartItemTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cartItemTable.AutoScroll = true;
-            this.cartItemTable.BackColor = System.Drawing.SystemColors.Control;
-            this.cartItemTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.cartItemTable.ColumnCount = 3;
-            this.cartItemTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.cartItemTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.cartItemTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.cartItemTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.cartItemTable.Location = new System.Drawing.Point(3, 24);
-            this.cartItemTable.Name = "cartItemTable";
-            this.cartItemTable.RowCount = 50;
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.cartItemTable.Size = new System.Drawing.Size(362, 201);
-            this.cartItemTable.TabIndex = 0;
-            // 
-            // menuTable
-            // 
-            this.menuTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.menuTable.AutoScroll = true;
-            this.menuTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.menuTable.BackColor = System.Drawing.SystemColors.Control;
-            this.menuTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.menuTable.ColumnCount = 2;
-            this.menuTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 73.90571F));
-            this.menuTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.09429F));
-            this.menuTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.menuTable.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.menuTable.Location = new System.Drawing.Point(12, 12);
-            this.menuTable.Name = "menuTable";
-            this.menuTable.RowCount = 50;
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.menuTable.Size = new System.Drawing.Size(384, 417);
-            this.menuTable.TabIndex = 6;
             // 
             // itemImage
             // 
@@ -273,7 +71,7 @@
             this.itemNameLabel.Name = "itemNameLabel";
             this.itemNameLabel.Size = new System.Drawing.Size(214, 65);
             this.itemNameLabel.TabIndex = 8;
-            this.itemNameLabel.Text = "Item Label Goes Here Thank You";
+            this.itemNameLabel.Text = "Item Label Goes Here Neeeerd";
             this.itemNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // itemPriceLabel
@@ -285,7 +83,6 @@
             this.itemPriceLabel.Size = new System.Drawing.Size(214, 41);
             this.itemPriceLabel.TabIndex = 9;
             this.itemPriceLabel.Text = "PRICEPRICE";
-            this.itemPriceLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // addToCartButton
             // 
@@ -305,46 +102,234 @@
             this.itemCountCounter.TabIndex = 11;
             this.itemCountCounter.ValueChanged += new System.EventHandler(this.itemCount_ValueChanged);
             // 
-            // FFOS_UI
+            // menuDataGrid
+            // 
+            this.menuDataGrid.AllowUserToAddRows = false;
+            this.menuDataGrid.AllowUserToDeleteRows = false;
+            this.menuDataGrid.AllowUserToResizeColumns = false;
+            this.menuDataGrid.AllowUserToResizeRows = false;
+            this.menuDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuDataGrid.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.menuDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.menuDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ItemImageColumn,
+            this.ItemNameColumn,
+            this.ItemPriceColumn});
+            this.menuDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.menuDataGrid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.menuDataGrid.Location = new System.Drawing.Point(12, 12);
+            this.menuDataGrid.MultiSelect = false;
+            this.menuDataGrid.Name = "menuDataGrid";
+            this.menuDataGrid.ReadOnly = true;
+            this.menuDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.menuDataGrid.RowHeadersVisible = false;
+            this.menuDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.menuDataGrid.RowTemplate.Height = 25;
+            this.menuDataGrid.RowTemplate.ReadOnly = true;
+            this.menuDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.menuDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.menuDataGrid.ShowCellErrors = false;
+            this.menuDataGrid.ShowCellToolTips = false;
+            this.menuDataGrid.ShowEditingIcon = false;
+            this.menuDataGrid.ShowRowErrors = false;
+            this.menuDataGrid.Size = new System.Drawing.Size(384, 417);
+            this.menuDataGrid.StandardTab = true;
+            this.menuDataGrid.TabIndex = 12;
+            this.menuDataGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.menuDataGrid_RowEnter);
+            this.menuDataGrid.SelectionChanged += new System.EventHandler(this.menuDataGrid_RowSelected);
+            // 
+            // ItemImageColumn
+            // 
+            this.ItemImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemImageColumn.HeaderText = "Image";
+            this.ItemImageColumn.Name = "ItemImageColumn";
+            this.ItemImageColumn.ReadOnly = true;
+            this.ItemImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ItemNameColumn
+            // 
+            this.ItemNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemNameColumn.HeaderText = "Item Name";
+            this.ItemNameColumn.Name = "ItemNameColumn";
+            this.ItemNameColumn.ReadOnly = true;
+            this.ItemNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ItemNameColumn.Width = 206;
+            // 
+            // ItemPriceColumn
+            // 
+            this.ItemPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemPriceColumn.HeaderText = "Price";
+            this.ItemPriceColumn.Name = "ItemPriceColumn";
+            this.ItemPriceColumn.ReadOnly = true;
+            this.ItemPriceColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ItemPriceColumn.Width = 75;
+            // 
+            // selectedCartItemLabel
+            // 
+            this.selectedCartItemLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectedCartItemLabel.Location = new System.Drawing.Point(78, 232);
+            this.selectedCartItemLabel.Name = "selectedCartItemLabel";
+            this.selectedCartItemLabel.Size = new System.Drawing.Size(198, 23);
+            this.selectedCartItemLabel.TabIndex = 1;
+            this.selectedCartItemLabel.Text = "Menu Item Name Here";
+            this.selectedCartItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // itemCountMinusOneButton
+            // 
+            this.itemCountMinusOneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemCountMinusOneButton.Location = new System.Drawing.Point(42, 232);
+            this.itemCountMinusOneButton.Name = "itemCountMinusOneButton";
+            this.itemCountMinusOneButton.Size = new System.Drawing.Size(30, 23);
+            this.itemCountMinusOneButton.TabIndex = 2;
+            this.itemCountMinusOneButton.Text = "-1";
+            this.itemCountMinusOneButton.UseVisualStyleBackColor = true;
+            this.itemCountMinusOneButton.Click += new System.EventHandler(this.itemCountMinusOneButton_OnClick);
+            // 
+            // itemCountPlusOneButton
+            // 
+            this.itemCountPlusOneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemCountPlusOneButton.Location = new System.Drawing.Point(6, 232);
+            this.itemCountPlusOneButton.Name = "itemCountPlusOneButton";
+            this.itemCountPlusOneButton.Size = new System.Drawing.Size(30, 23);
+            this.itemCountPlusOneButton.TabIndex = 3;
+            this.itemCountPlusOneButton.Text = "+1";
+            this.itemCountPlusOneButton.UseVisualStyleBackColor = true;
+            this.itemCountPlusOneButton.Click += new System.EventHandler(this.itemCountPlusOneButton_OnClick);
+            // 
+            // purchaseButton
+            // 
+            this.purchaseButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.purchaseButton.Location = new System.Drawing.Point(282, 232);
+            this.purchaseButton.Name = "purchaseButton";
+            this.purchaseButton.Size = new System.Drawing.Size(82, 23);
+            this.purchaseButton.TabIndex = 4;
+            this.purchaseButton.Text = "Place Order";
+            this.purchaseButton.UseVisualStyleBackColor = true;
+            this.purchaseButton.Click += new System.EventHandler(this.purchaseButton_OnClick);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cartDataGrid);
+            this.groupBox1.Controls.Add(this.purchaseButton);
+            this.groupBox1.Controls.Add(this.selectedCartItemLabel);
+            this.groupBox1.Controls.Add(this.itemCountPlusOneButton);
+            this.groupBox1.Controls.Add(this.itemCountMinusOneButton);
+            this.groupBox1.Location = new System.Drawing.Point(402, 168);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(370, 261);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Cart";
+            // 
+            // cartDataGrid
+            // 
+            this.cartDataGrid.AllowUserToAddRows = false;
+            this.cartDataGrid.AllowUserToDeleteRows = false;
+            this.cartDataGrid.AllowUserToOrderColumns = true;
+            this.cartDataGrid.AllowUserToResizeColumns = false;
+            this.cartDataGrid.AllowUserToResizeRows = false;
+            this.cartDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cartDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.cartDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cartDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cartItemQuantity,
+            this.cartItemName,
+            this.cartItemPrice});
+            this.cartDataGrid.Location = new System.Drawing.Point(6, 22);
+            this.cartDataGrid.MultiSelect = false;
+            this.cartDataGrid.Name = "cartDataGrid";
+            this.cartDataGrid.ReadOnly = true;
+            this.cartDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.cartDataGrid.RowHeadersVisible = false;
+            this.cartDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.cartDataGrid.RowTemplate.Height = 25;
+            this.cartDataGrid.ShowCellErrors = false;
+            this.cartDataGrid.ShowCellToolTips = false;
+            this.cartDataGrid.Size = new System.Drawing.Size(358, 204);
+            this.cartDataGrid.TabIndex = 5;
+            this.cartDataGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartDataGrid_RowSelected);
+            // 
+            // cartItemQuantity
+            // 
+            this.cartItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cartItemQuantity.HeaderText = "Quantity";
+            this.cartItemQuantity.Name = "cartItemQuantity";
+            this.cartItemQuantity.ReadOnly = true;
+            this.cartItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cartItemQuantity.Width = 60;
+            // 
+            // cartItemName
+            // 
+            this.cartItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cartItemName.HeaderText = "Name";
+            this.cartItemName.Name = "cartItemName";
+            this.cartItemName.ReadOnly = true;
+            this.cartItemName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cartItemName.Width = 240;
+            // 
+            // cartItemPrice
+            // 
+            this.cartItemPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cartItemPrice.HeaderText = "Price";
+            this.cartItemPrice.Name = "cartItemPrice";
+            this.cartItemPrice.ReadOnly = true;
+            this.cartItemPrice.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cartItemPrice.Width = 55;
+            // 
+            // formUI
             // 
             this.AcceptButton = this.addToCartButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(784, 441);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuDataGrid);
             this.Controls.Add(this.itemCountCounter);
             this.Controls.Add(this.addToCartButton);
             this.Controls.Add(this.itemPriceLabel);
             this.Controls.Add(this.itemNameLabel);
             this.Controls.Add(this.itemImage);
-            this.Controls.Add(this.menuTable);
-            this.Controls.Add(this.cartListPanel);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
-            this.Name = "FFOS_UI";
+            this.Name = "formUI";
             this.Text = "Fastfood Ordering System";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.cartListPanel.ResumeLayout(false);
-            this.cartListPanel.PerformLayout();
+            this.Shown += new System.EventHandler(this.formUI_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemCountCounter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.menuDataGrid)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cartDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Panel cartListPanel;
-        public TableLayoutPanel menuTable;
-        public Label selectedCartItemLabel;
-        private Label cartPanelLabel;
         public PictureBox itemImage;
         public Label itemNameLabel;
         public Label itemPriceLabel;
-        public TableLayoutPanel cartItemTable;
         public NumericUpDown itemCountCounter;
+        private Button addToCartButton;
+        public DataGridView menuDataGrid;
+        private DataGridViewImageColumn ItemImageColumn;
+        private DataGridViewTextBoxColumn ItemNameColumn;
+        private DataGridViewTextBoxColumn ItemPriceColumn;
+        public Label selectedCartItemLabel;
         public Button itemCountMinusOneButton;
         public Button itemCountPlusOneButton;
         public Button purchaseButton;
-        private Button addToCartButton;
+        private GroupBox groupBox1;
+        public DataGridView cartDataGrid;
+        private DataGridViewTextBoxColumn cartItemQuantity;
+        private DataGridViewTextBoxColumn cartItemName;
+        private DataGridViewTextBoxColumn cartItemPrice;
     }
 }
