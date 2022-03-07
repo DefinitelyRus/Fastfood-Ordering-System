@@ -71,7 +71,7 @@
             this.itemNameLabel.Name = "itemNameLabel";
             this.itemNameLabel.Size = new System.Drawing.Size(214, 65);
             this.itemNameLabel.TabIndex = 8;
-            this.itemNameLabel.Text = "Item Label Goes Here Neeeerd";
+            this.itemNameLabel.Text = "Item Label Goes Here with 2nd line";
             this.itemNameLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // itemPriceLabel

@@ -61,7 +61,7 @@ namespace FastfoodOrderingSystem
 
         private void formUI_Shown(object sender, EventArgs e)
         {
-            menuDataGrid.RowCount = 100;
+            //menuDataGrid.RowCount = 2;
             //Make this scalable with the number of actual menu items.
 
             Console.WriteLine(menuDataGrid.RowCount);
