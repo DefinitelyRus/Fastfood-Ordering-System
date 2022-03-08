@@ -1,3 +1,4 @@
+using FFOS_Backend_Library;
 namespace FastfoodOrderingSystem
 {
     public partial class formUI : Form
@@ -7,67 +8,49 @@ namespace FastfoodOrderingSystem
             InitializeComponent();
         }
 
-        public void addToCartButton_Click(object sender, EventArgs e)
-        {
-            //I have no idea where the event activation is.
-            //Found it lol
-            Console.WriteLine("Hello!");
-        }
-
-        private void selectedCartItemLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void itemCountPlusOneButton_OnClick(object sender, EventArgs e)
         {
-
+            //Code here runs when the "+1" button is clicked.
         }
 
         private void itemCountMinusOneButton_OnClick(object sender, EventArgs e)
         {
-
+            //Code here runs when the "-1" button is clicked.
         }
 
         private void purchaseButton_OnClick(object sender, EventArgs e)
         {
-
+            //Code here runs when the "Place Order" button is clicked.
         }
 
         private void addToCartButton_OnClick(object sender, EventArgs e)
         {
-
+            //Code here runs when the "Add to Cart" button is clicked.
         }
 
         private void itemCount_ValueChanged(object sender, EventArgs e)
         {
-
+            //Code here runs when the Item count is changed.
         }
 
         private void menuDataGrid_RowSelected(object sender, EventArgs e)
         {
-            Console.WriteLine("ROW SELECTED");
+            //Code here runs when a row in the menu is selected.
+            Console.WriteLine("test");
         }
 
         private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void menuDataGrid_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            Console.WriteLine("ROW ENTERED");
+            //Code here runs when a row in the cart is selected.
         }
 
         private void formUI_Shown(object sender, EventArgs e)
         {
-            //menuDataGrid.RowCount = 2;
+            //TODO: Import MenuItems from JSON file.
+            
+            menuDataGrid.RowCount = 2;
             //Make this scalable with the number of actual menu items.
 
-            Console.WriteLine(menuDataGrid.RowCount);
-            //menuDataGrid[0, 0] = null;
-            //menuDataGrid[1, 0] = null;
-            //menuDataGrid[2, 0] = null;
             for (int rowIndex = 0; rowIndex < menuDataGrid.Rows.Count; rowIndex++)
             {
                 /* 
@@ -76,12 +59,18 @@ namespace FastfoodOrderingSystem
                  * 1: Name
                  * 2: Price
                  */
-                string imgPath = Environment.ProcessPath;
+                MenuItem[] menuItemArray = FFOS_Backend_Library.MasterClass.ReadFile(jsonFilePath);
+                string menuItemImagePath = "chicken.jpg"; //TEMP
+
+                string imgPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +
+                    "/Images/" + menuItemImagePath;
                 Console.WriteLine(imgPath);
                 //Image img = Image.FromFile(imgPath);
                 DataGridViewCell imgCell = menuDataGrid[0, rowIndex];
                 DataGridViewCell nameCell = menuDataGrid[1, rowIndex];
                 DataGridViewCell priceCell = menuDataGrid[2, rowIndex];
+
+                //imgCell.Value = Image.FromFile(imgPath);
 
                 Console.WriteLine("");
                 Console.WriteLine(imgCell.ValueType);

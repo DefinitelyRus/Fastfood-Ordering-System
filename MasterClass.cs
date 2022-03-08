@@ -7,7 +7,7 @@ namespace FastfoodOrderingSystem
         /*
          * to-do:
          * - menu item constructor thru console input
-         * - object to JSON parser
+         * - object to JSON parser DONE
          * - display all contents to data grids*
          * - display menu item content upon row select*
          * - save cart contents as its own linked list

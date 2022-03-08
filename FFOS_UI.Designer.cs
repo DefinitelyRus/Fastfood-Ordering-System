@@ -137,7 +137,6 @@
             this.menuDataGrid.Size = new System.Drawing.Size(384, 417);
             this.menuDataGrid.StandardTab = true;
             this.menuDataGrid.TabIndex = 12;
-            this.menuDataGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.menuDataGrid_RowEnter);
             this.menuDataGrid.SelectionChanged += new System.EventHandler(this.menuDataGrid_RowSelected);
             // 
             // ItemImageColumn

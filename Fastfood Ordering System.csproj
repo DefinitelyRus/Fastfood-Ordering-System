@@ -9,4 +9,8 @@
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FFOS Backend Library\FFOS Backend Library.csproj" />
+  </ItemGroup>
+
 </Project>
