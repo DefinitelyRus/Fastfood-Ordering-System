@@ -1,8 +1,10 @@
 using FFOS_Backend_Library;
+using static FFOS_Backend_Library.MasterClass;
 namespace FastfoodOrderingSystem
 {
     public partial class formUI : Form
     {
+        MenuItem[] menuItems;
         public formUI()
         {
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace FastfoodOrderingSystem
         private void menuDataGrid_RowSelected(object sender, EventArgs e)
         {
             //Code here runs when a row in the menu is selected.
-            Console.WriteLine("test");
         }
 
         private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
@@ -46,11 +47,31 @@ namespace FastfoodOrderingSystem
 
         private void formUI_Shown(object sender, EventArgs e)
         {
-            //TODO: Import MenuItems from JSON file.
-            
-            menuDataGrid.RowCount = 2;
-            //Make this scalable with the number of actual menu items.
+            //Force-test; checks if JSON file and directory exists.
+            ReadFile(GetDirectory("json"));
 
+            //Imports MenuItems from JSON file.
+            menuItems = ParseJson(ReadJson(GetDirectory("json")));
+
+            //Sets the data grid's size to match the menuItem array.
+            if (menuItems != null) menuDataGrid.RowCount = menuItems.Length;
+            else menuDataGrid.RowCount = 0;
+
+            //Changes the form's title if the menu is empty.
+            //Also disables all interactable elements.
+            if (menuDataGrid.Rows.Count == 0)
+            {
+                formUI.ActiveForm.Text =
+                    "THE MENU IS EMPTY. Please use \"Menu Editor.exe\" to add new items.";
+                addToCartButton.Enabled = false;
+                purchaseButton.Enabled = false;
+                itemCountCounter.Enabled = false;
+                itemCountPlusOneButton.Enabled = false;
+                itemCountMinusOneButton.Enabled = false;
+                return;
+            }
+
+            //Iterates through all rows on the Menu Data Grid.
             for (int rowIndex = 0; rowIndex < menuDataGrid.Rows.Count; rowIndex++)
             {
                 /* 
@@ -59,25 +80,24 @@ namespace FastfoodOrderingSystem
                  * 1: Name
                  * 2: Price
                  */
-                MenuItem[] menuItemArray = FFOS_Backend_Library.MasterClass.ReadFile(jsonFilePath);
-                string menuItemImagePath = "chicken.jpg"; //TEMP
+                MenuItem item = menuItems[rowIndex];
 
-                string imgPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) +
-                    "/Images/" + menuItemImagePath;
-                Console.WriteLine(imgPath);
-                //Image img = Image.FromFile(imgPath);
+                //Assigns each cell to a variable.
                 DataGridViewCell imgCell = menuDataGrid[0, rowIndex];
                 DataGridViewCell nameCell = menuDataGrid[1, rowIndex];
                 DataGridViewCell priceCell = menuDataGrid[2, rowIndex];
 
-                //imgCell.Value = Image.FromFile(imgPath);
+                //Changes the value of each cell to match the internal menu.
+                imgCell.Value = Image.FromFile(item.getImgFilePath());
+                nameCell.Value = item.ItemName; ;
+                priceCell.Value = item.Price.ToString(); ;
 
-                Console.WriteLine("");
-                Console.WriteLine(imgCell.ValueType);
-                Console.WriteLine(nameCell.ValueType);
-                Console.WriteLine(priceCell.ValueType);
+                //Selects the current name cell, then sets its row height to 64px.
+                menuDataGrid.CurrentCell = nameCell;
+                menuDataGrid.CurrentRow.Height = 64;
+
+                Console.WriteLine("Attempting to add " + item.ID + "...");
             }
-            //menuDataGrid[1,4] = null;
         }
     }
 }

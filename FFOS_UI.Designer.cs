@@ -34,9 +34,6 @@
             this.addToCartButton = new System.Windows.Forms.Button();
             this.itemCountCounter = new System.Windows.Forms.NumericUpDown();
             this.menuDataGrid = new System.Windows.Forms.DataGridView();
-            this.ItemImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedCartItemLabel = new System.Windows.Forms.Label();
             this.itemCountMinusOneButton = new System.Windows.Forms.Button();
             this.itemCountPlusOneButton = new System.Windows.Forms.Button();
@@ -46,6 +43,9 @@
             this.cartItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cartItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemCountCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuDataGrid)).BeginInit();
@@ -138,32 +138,6 @@
             this.menuDataGrid.StandardTab = true;
             this.menuDataGrid.TabIndex = 12;
             this.menuDataGrid.SelectionChanged += new System.EventHandler(this.menuDataGrid_RowSelected);
-            // 
-            // ItemImageColumn
-            // 
-            this.ItemImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ItemImageColumn.HeaderText = "Image";
-            this.ItemImageColumn.Name = "ItemImageColumn";
-            this.ItemImageColumn.ReadOnly = true;
-            this.ItemImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // ItemNameColumn
-            // 
-            this.ItemNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ItemNameColumn.HeaderText = "Item Name";
-            this.ItemNameColumn.Name = "ItemNameColumn";
-            this.ItemNameColumn.ReadOnly = true;
-            this.ItemNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ItemNameColumn.Width = 206;
-            // 
-            // ItemPriceColumn
-            // 
-            this.ItemPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ItemPriceColumn.HeaderText = "Price";
-            this.ItemPriceColumn.Name = "ItemPriceColumn";
-            this.ItemPriceColumn.ReadOnly = true;
-            this.ItemPriceColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ItemPriceColumn.Width = 75;
             // 
             // selectedCartItemLabel
             // 
@@ -283,6 +257,33 @@
             this.cartItemPrice.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cartItemPrice.Width = 55;
             // 
+            // ItemImageColumn
+            // 
+            this.ItemImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemImageColumn.HeaderText = "Image";
+            this.ItemImageColumn.Name = "ItemImageColumn";
+            this.ItemImageColumn.ReadOnly = true;
+            this.ItemImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ItemImageColumn.Width = 64;
+            // 
+            // ItemNameColumn
+            // 
+            this.ItemNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemNameColumn.HeaderText = "Item Name";
+            this.ItemNameColumn.Name = "ItemNameColumn";
+            this.ItemNameColumn.ReadOnly = true;
+            this.ItemNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ItemNameColumn.Width = 242;
+            // 
+            // ItemPriceColumn
+            // 
+            this.ItemPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemPriceColumn.HeaderText = "Price";
+            this.ItemPriceColumn.Name = "ItemPriceColumn";
+            this.ItemPriceColumn.ReadOnly = true;
+            this.ItemPriceColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ItemPriceColumn.Width = 75;
+            // 
             // formUI
             // 
             this.AcceptButton = this.addToCartButton;
@@ -318,9 +319,6 @@
         public NumericUpDown itemCountCounter;
         private Button addToCartButton;
         public DataGridView menuDataGrid;
-        private DataGridViewImageColumn ItemImageColumn;
-        private DataGridViewTextBoxColumn ItemNameColumn;
-        private DataGridViewTextBoxColumn ItemPriceColumn;
         public Label selectedCartItemLabel;
         public Button itemCountMinusOneButton;
         public Button itemCountPlusOneButton;
@@ -330,5 +328,8 @@
         private DataGridViewTextBoxColumn cartItemQuantity;
         private DataGridViewTextBoxColumn cartItemName;
         private DataGridViewTextBoxColumn cartItemPrice;
+        private DataGridViewImageColumn ItemImageColumn;
+        private DataGridViewTextBoxColumn ItemNameColumn;
+        private DataGridViewTextBoxColumn ItemPriceColumn;
     }
 }
