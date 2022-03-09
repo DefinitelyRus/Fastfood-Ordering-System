@@ -10,6 +10,26 @@ namespace FastfoodOrderingSystem
             InitializeComponent();
         }
 
+        private void menuDataGrid_RowSelected(object sender, EventArgs e)
+        {
+            //Code here runs when a row in the menu is selected.
+        }
+
+        private void itemCount_ValueChanged(object sender, EventArgs e)
+        {
+            //Code here runs when the Item count is changed.
+        }
+
+        private void addToCartButton_OnClick(object sender, EventArgs e)
+        {
+            //Code here runs when the "Add to Cart" button is clicked.
+        }
+
+        private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
+        {
+            //Code here runs when a row in the cart is selected.
+        }
+
         private void itemCountPlusOneButton_OnClick(object sender, EventArgs e)
         {
             //Code here runs when the "+1" button is clicked.
@@ -25,26 +45,7 @@ namespace FastfoodOrderingSystem
             //Code here runs when the "Place Order" button is clicked.
         }
 
-        private void addToCartButton_OnClick(object sender, EventArgs e)
-        {
-            //Code here runs when the "Add to Cart" button is clicked.
-        }
-
-        private void itemCount_ValueChanged(object sender, EventArgs e)
-        {
-            //Code here runs when the Item count is changed.
-        }
-
-        private void menuDataGrid_RowSelected(object sender, EventArgs e)
-        {
-            //Code here runs when a row in the menu is selected.
-        }
-
-        private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
-        {
-            //Code here runs when a row in the cart is selected.
-        }
-
+        //Code here will run once the form is displayed on the screen.
         private void formUI_Shown(object sender, EventArgs e)
         {
             //Force-test; checks if JSON file and directory exists.
