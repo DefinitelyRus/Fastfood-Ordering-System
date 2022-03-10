@@ -57,10 +57,11 @@
             // 
             this.itemImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.itemImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.itemImage.Image = global::Fastfood_Ordering_System.Properties.Resources.burger;
             this.itemImage.Location = new System.Drawing.Point(622, 12);
             this.itemImage.Name = "itemImage";
             this.itemImage.Size = new System.Drawing.Size(150, 150);
-            this.itemImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.itemImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.itemImage.TabIndex = 7;
             this.itemImage.TabStop = false;
             // 
@@ -111,6 +112,7 @@
             this.menuDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.menuDataGrid.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.menuDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.menuDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -204,7 +206,6 @@
             // 
             this.cartDataGrid.AllowUserToAddRows = false;
             this.cartDataGrid.AllowUserToDeleteRows = false;
-            this.cartDataGrid.AllowUserToOrderColumns = true;
             this.cartDataGrid.AllowUserToResizeColumns = false;
             this.cartDataGrid.AllowUserToResizeRows = false;
             this.cartDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -224,6 +225,7 @@
             this.cartDataGrid.RowHeadersVisible = false;
             this.cartDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.cartDataGrid.RowTemplate.Height = 25;
+            this.cartDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cartDataGrid.ShowCellErrors = false;
             this.cartDataGrid.ShowCellToolTips = false;
             this.cartDataGrid.Size = new System.Drawing.Size(358, 204);
@@ -232,57 +234,57 @@
             // 
             // cartItemQuantity
             // 
-            this.cartItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cartItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartItemQuantity.FillWeight = 30F;
             this.cartItemQuantity.HeaderText = "Quantity";
             this.cartItemQuantity.Name = "cartItemQuantity";
             this.cartItemQuantity.ReadOnly = true;
             this.cartItemQuantity.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cartItemQuantity.Width = 60;
             // 
             // cartItemName
             // 
-            this.cartItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cartItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cartItemName.HeaderText = "Name";
             this.cartItemName.Name = "cartItemName";
             this.cartItemName.ReadOnly = true;
             this.cartItemName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cartItemName.Width = 240;
             // 
             // cartItemPrice
             // 
-            this.cartItemPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cartItemPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartItemPrice.FillWeight = 40F;
             this.cartItemPrice.HeaderText = "Price";
             this.cartItemPrice.Name = "cartItemPrice";
             this.cartItemPrice.ReadOnly = true;
             this.cartItemPrice.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.cartItemPrice.Width = 55;
             // 
             // ItemImageColumn
             // 
-            this.ItemImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemImageColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemImageColumn.FillWeight = 30F;
             this.ItemImageColumn.HeaderText = "Image";
+            this.ItemImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.ItemImageColumn.Name = "ItemImageColumn";
             this.ItemImageColumn.ReadOnly = true;
             this.ItemImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ItemImageColumn.Width = 64;
             // 
             // ItemNameColumn
             // 
-            this.ItemNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemNameColumn.FillWeight = 86.80203F;
             this.ItemNameColumn.HeaderText = "Item Name";
             this.ItemNameColumn.Name = "ItemNameColumn";
             this.ItemNameColumn.ReadOnly = true;
             this.ItemNameColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ItemNameColumn.Width = 242;
             // 
             // ItemPriceColumn
             // 
-            this.ItemPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ItemPriceColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemPriceColumn.FillWeight = 40F;
             this.ItemPriceColumn.HeaderText = "Price";
             this.ItemPriceColumn.Name = "ItemPriceColumn";
             this.ItemPriceColumn.ReadOnly = true;
             this.ItemPriceColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ItemPriceColumn.Width = 75;
             // 
             // formUI
             // 
@@ -325,11 +327,11 @@
         public Button purchaseButton;
         private GroupBox groupBox1;
         public DataGridView cartDataGrid;
-        private DataGridViewTextBoxColumn cartItemQuantity;
-        private DataGridViewTextBoxColumn cartItemName;
-        private DataGridViewTextBoxColumn cartItemPrice;
         private DataGridViewImageColumn ItemImageColumn;
         private DataGridViewTextBoxColumn ItemNameColumn;
         private DataGridViewTextBoxColumn ItemPriceColumn;
+        private DataGridViewTextBoxColumn cartItemQuantity;
+        private DataGridViewTextBoxColumn cartItemName;
+        private DataGridViewTextBoxColumn cartItemPrice;
     }
 }

@@ -5,6 +5,7 @@ namespace FastfoodOrderingSystem
     public partial class formUI : Form
     {
         MenuItem[] menuItems;
+        MenuItem? selectedItem = null;
         public formUI()
         {
             InitializeComponent();
@@ -13,16 +14,73 @@ namespace FastfoodOrderingSystem
         private void menuDataGrid_RowSelected(object sender, EventArgs e)
         {
             //Code here runs when a row in the menu is selected.
+
+            selectedItem = menuItems[menuDataGrid.SelectedRows[0].Index];
+            /* 
+             * TODO: Add code that updates these elements when a row is selected:
+             *     - itemNameLabel
+             *     - itemPriceLabel
+             *     - itemImage
+             *     - itemCountCounter (set to 1)
+             * 
+             * Hints:
+             *     - You can change element values with this: "<element name>.Value = <value>"
+             *     - For text elements like labels, use this: "<element name>.Text = <text>"
+             *     - You can get the values you need from "selectedItem".
+             */
+
+            //WRITE CODE HERE
+
         }
 
         private void itemCount_ValueChanged(object sender, EventArgs e)
         {
             //Code here runs when the Item count is changed.
+
+            /*
+             * TODO: Get the item count value, then multiply the price by that value.
+             * 
+             * Example:
+             *     The value is set to 3 items, and the price is P40.
+             *     The displayed price should then be 3x40, or simply "P120".
+             *     
+             * Hints:
+             *     - You can also get the element values with this: "<element name>.Value",
+             *       then assign it to a variable or use it directly.
+             *     - You can convert the FLOATs to STRINGs using "<float>.ToString()".
+             *     - The only elements involved are itemCountCounter and itemPriceLabel.
+             */
+
+            //WRITE CODE HERE
+
         }
 
         private void addToCartButton_OnClick(object sender, EventArgs e)
         {
             //Code here runs when the "Add to Cart" button is clicked.
+            #region [Hidden Region] Inserts a new row, then selects that row as the active row.
+            cartDataGrid.RowCount += 1;
+            try { cartDataGrid.CurrentCell = cartDataGrid[1, cartDataGrid.RowCount - 1]; }
+            catch { }
+            #endregion
+
+            /*
+             * TODO:
+             *     - Get these values, then put them in cartDataGrid.
+             *         - item count
+             *         - ItemName
+             *         - Price
+             * 
+             * Hints:
+             *     - To put the values into the cartDataGrid, you first need to make an array.
+             *       In this array, there will be 3 strings in order: The quantity, name, then price.
+             *     - You can get the item count from itemCountCounter, the ItemName from selectedItem,
+             *       and the price by multiplying the Price from selectedItem by the item count.
+             *     - You have to get the current row first, then set its values to the array you made.
+             */
+            
+            //WRITE CODE HERE
+
         }
 
         private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
@@ -46,6 +104,7 @@ namespace FastfoodOrderingSystem
         }
 
         //Code here will run once the form is displayed on the screen.
+        //No need to edit this part.
         private void formUI_Shown(object sender, EventArgs e)
         {
             //Force-test; checks if JSON file and directory exists.
@@ -89,7 +148,8 @@ namespace FastfoodOrderingSystem
                 DataGridViewCell priceCell = menuDataGrid[2, rowIndex];
 
                 //Changes the value of each cell to match the internal menu.
-                imgCell.Value = Image.FromFile(item.getImgFilePath());
+                try { imgCell.Value = Image.FromFile(item.getImgFilePath()); }
+                catch { imgCell.Value = null; }
                 nameCell.Value = item.ItemName; ;
                 priceCell.Value = item.Price.ToString(); ;
 
