@@ -40,7 +40,11 @@ namespace FastfoodOrderingSystem
              */
 
             //WRITE CODE HERE
-
+            itemNameLabel.Text = selectedItem.ItemName;
+            itemPriceLabel.Text = "Php" + selectedItem.Price.ToString();
+            itemImage.Image = Image.FromFile(selectedItem.getImgFilePath());
+            itemCountCounter.Value = 1;
+            addToCartButton.Enabled = true;
         }
 
         //Code here runs when the Item count is changed.
@@ -62,7 +66,7 @@ namespace FastfoodOrderingSystem
              */
 
             //WRITE CODE HERE
-            
+            itemPriceLabel.Text = "Php" + (Convert.ToDecimal(selectedItem.Price) * itemCountCounter.Value);
         }
 
         //Code here runs when the "Add to Cart" button is clicked.
@@ -88,15 +92,23 @@ namespace FastfoodOrderingSystem
              *       and the price by multiplying the Price from selectedItem by the item count.
              *     - You have to get the current row first, then set its values to the array you made.
              */
-            
+
             //WRITE CODE HERE
-            
+            cartDataGrid.CurrentRow.Cells[0].Value = itemCountCounter.Value.ToString();
+            cartDataGrid.CurrentRow.Cells[1].Value = selectedItem.ItemName;
+            cartDataGrid.CurrentRow.Cells[2].Value = selectedItem.Price.ToString();
+            cartDataGrid.CurrentRow.Cells[3].Value = selectedItem.ID;
+
+            addToCartButton.Enabled = false;
+            purchaseButton.Enabled = true;
+
+            cartItems.AddLast(selectedItem);
         }
 
         //Code here runs when a row in the cart is selected.
         private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
         {
-
+            Console.WriteLine(cartDataGrid.SelectedRows.Count);
             Console.WriteLine("Cart row selected.");// (Index: " + cartDataGrid.CurrentRow.Index + ")");
             /*
              * TODO:
@@ -105,11 +117,22 @@ namespace FastfoodOrderingSystem
              */
 
             //WRITE CODE HERE
-
+            foreach (MenuItem item in menuItems)
+            {
+                if (item.ID == "")//cartDataGrid.CurrentRow.Cells[3].Value)
+                {
+                    selectedItem = item;
+                    break;
+                }
+            }
         }
         private void purchaseButton_OnClick(object sender, EventArgs e)
         {
             //Code here runs when the "Place Order" button is clicked.
+            cartItems.Clear();
+            cartDataGrid = null;
+            selectedItem = null;
+            purchaseButton.Enabled = false;
         }
 
         #region [Hidden Region] Pre-done stuff.
