@@ -1,5 +1,6 @@
 using FFOS_Backend_Library;
 using static FFOS_Backend_Library.MasterClass;
+
 namespace FastfoodOrderingSystem
 {
     public partial class formUI : Form
@@ -15,208 +16,91 @@ namespace FastfoodOrderingSystem
         }
         #endregion
 
-        //Code here runs when a row in the menu is selected.
+        #region UI Events
+
+
+        //Updates the preview when a row in the menu is selected.
         private void menuDataGrid_RowSelected(object sender, EventArgs e)
         {
+            if (menuDataGrid.SelectedRows.Count == 0) return;
+
             int index = menuDataGrid.SelectedRows[0].Index;
             selectedItem = menuItems[index];
             Console.WriteLine("\nMenu row selected. (Index: " + index + ")");
-            //selectedItem = new MenuItem("cheeseburger", "Cheese Burger", 30, "cheeseburger.jpg");
-            /* 
-             * TODO:
-             *     - Add code that updates these elements when a row is selected:
-             *         - itemNameLabel
-             *         - itemPriceLabel
-             *         - itemImage
-             *         - itemCountCounter (set to 1)
-             *     - Enable the addToCartButton.
-             * 
-             * Hints:
-             *     - You can change element values with this: "<element name>.Value = <value>"
-             *     - For text elements like labels, use this: "<element name>.Text = <text>"
-             *     - You can get the values you need from "selectedItem".
-             *     - "Enable" is an attribute of any UI element. It can be set to true or false.
-             *       Disabled elements are typically grayed-out and cannot be clicked.
-             */
 
-            //WRITE CODE HERE
+            //Changes the preview contents.
             itemNameLabel.Text = selectedItem.ItemName;
             itemPriceLabel.Text = "Php" + selectedItem.Price.ToString();
-            itemImage.Image = Image.FromFile(selectedItem.getImgFilePath());
+            try { itemImage.Image = Image.FromFile(selectedItem.getImgFilePath()); }
+            catch { itemImage.Image = null; }
+            
             itemCountCounter.Value = 1;
+
+            //Makes the item counter and add to cart buttons clickable.
+            itemCountCounter.Enabled = true;
             addToCartButton.Enabled = true;
         }
 
-        //Code here runs when the Item count is changed.
+
+        //Updates the price preview when the Item count is changed.
         private void itemCount_ValueChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("Item counter changed to " + itemCountCounter.Value + ".");
-            /*
-             * TODO: Get the item count value, then multiply the price by that value.
-             * 
-             * Example:
-             *     The value is set to 3 items, and the price is P40.
-             *     The displayed price should then be "P120".
-             *     
-             * Hints:
-             *     - You can also get the element values with this: "<element name>.Value",
-             *       then assign it to a variable or use it directly.
-             *     - You can convert the FLOATs to STRINGs using "<float>.ToString()".
-             *     - The only elements involved are itemCountCounter and itemPriceLabel.
-             */
+            Console.WriteLine("\nItem counter changed to " + itemCountCounter.Value + ".");
 
-            //WRITE CODE HERE
-            itemPriceLabel.Text = "Php" + (Convert.ToDecimal(selectedItem.Price) * itemCountCounter.Value);
+            if (selectedItem == null) { return; } //Helps avoid crashes.
+            itemPriceLabel.Text = "Php" +
+                (Convert.ToDecimal(selectedItem.Price) * itemCountCounter.Value);
         }
 
-        //Code here runs when the "Add to Cart" button is clicked.
+
+        //Adds the item to cart when the "Add to Cart" button is clicked.
         private void addToCartButton_OnClick(object sender, EventArgs e)
         {
-            Console.WriteLine("Clicked addToCartButton; added " + selectedItem.ID + " to list.");
+            Console.WriteLine("\nClicked addToCartButton; added " + selectedItem.ID + " to list.");
+
+            //Adds a new empty row.
             cartDataGrid.RowCount += 1;
+
+            //Selects the new row.
             cartDataGrid.CurrentCell = cartDataGrid[1, cartDataGrid.RowCount - 1];
 
-            /*
-             * TODO:
-             *     - Get these values, then put them in cartDataGrid.
-             *         - item count
-             *         - ItemName
-             *         - Price
-             *         - ID (Hidden from UI)
-             *     - Add the selectedItem to the cartItems list.
-             * 
-             * Hints:
-             *     - To put the values into the cartDataGrid, you first need to make an array.
-             *       In this array, there will be 3 strings in order: The quantity, name, then price.
-             *     - You can get the item count from itemCountCounter, the ItemName from selectedItem,
-             *       and the price by multiplying the Price from selectedItem by the item count.
-             *     - You have to get the current row first, then set its values to the array you made.
-             */
-
-            //WRITE CODE HERE
+            //Updates the values for each cell in the row.
             cartDataGrid.CurrentRow.Cells[0].Value = itemCountCounter.Value.ToString();
             cartDataGrid.CurrentRow.Cells[1].Value = selectedItem.ItemName;
-            cartDataGrid.CurrentRow.Cells[2].Value = selectedItem.Price.ToString();
-            cartDataGrid.CurrentRow.Cells[3].Value = selectedItem.ID;
+            cartDataGrid.CurrentRow.Cells[2].Value = (Convert.ToDecimal(selectedItem.Price) * itemCountCounter.Value).ToString();
+            cartDataGrid.CurrentRow.Cells[3].Value = selectedItem.ID; // This one is hidden.
 
-            addToCartButton.Enabled = false;
+            //Makes the purchase button clickable.
             purchaseButton.Enabled = true;
 
+            //Adds the item to the internal list.
             cartItems.AddLast(selectedItem);
+            
+            //Updates the total price and resets the item preview.
+            UpdateTotal();
+            ResetPreview();
         }
 
-        //Code here runs when a row in the cart is selected.
-        private void cartDataGrid_RowSelected(object sender, DataGridViewCellEventArgs e)
-        {
-            Console.WriteLine(cartDataGrid.SelectedRows.Count);
-            Console.WriteLine("Cart row selected.");// (Index: " + cartDataGrid.CurrentRow.Index + ")");
-            /*
-             * TODO:
-             *     - Enable itemCountPlusOneButton and itemCountMinusOneButton.
-             *     - Assign the current cell to "activeCartCell".
-             */
 
-            //WRITE CODE HERE
-            foreach (MenuItem item in menuItems)
-            {
-                if (item.ID == "")//cartDataGrid.CurrentRow.Cells[3].Value)
-                {
-                    selectedItem = item;
-                    break;
-                }
-            }
-        }
+        //Clears the cart when the "Place Order" button is clicked.
         private void purchaseButton_OnClick(object sender, EventArgs e)
         {
-            //Code here runs when the "Place Order" button is clicked.
-            cartItems.Clear();
-            cartDataGrid = null;
-            selectedItem = null;
-            purchaseButton.Enabled = false;
-        }
+            cartItems.Clear(); //Clears the internal list.
+            cartDataGrid.RowCount = 0; //Sets the number of rows to 0. (Emptying the list)
+            selectedItem = null; //Marks no item as selected.
+            purchaseButton.Enabled = false; //Makes the purchase button unclickable.
 
-        #region [Hidden Region] Pre-done stuff.
-        //Code here runs when a row in cartDataGrid is no longer selected
-        private void cartDataGrid_RowLeft(object sender, DataGridViewCellEventArgs e)
-        {
-            Console.WriteLine("\nLeft cartDataGrid's focus.");
-            //Re-hides the +1 and -1 buttons.
-            //itemCountPlusOneButton.Enabled = false;
-            //itemCountMinusOneButton.Enabled = false;
-
-            //Displays the total amount when no cart item is selected.
-            float total = 0.00f;
-            foreach (MenuItem item in cartItems) total += item.Price;
-
-            selectedCartItemLabel.Text = "Total: Php" + total.ToString();
-        }
-
-        //Code here runs when the "+1" button is clicked.
-        private void itemCountPlusOneButton_OnClick(object sender, EventArgs e)
-        {
-            Console.WriteLine("\nClicked +1 Button.");
-
-            DataGridViewRow row = cartDataGrid.CurrentRow;
-            int count = int.Parse((string) row.Cells[0].Value);
-            if (count < 100)
-            {
-                count++;
-                row.Cells[0].Value = count.ToString();
-                row.Cells[2].Value = Convert.ToDecimal(row.Cells[2].Value) * count;
-            }
-        }
-
-        //Code here runs when the "-1" button is clicked.
-        private void itemCountMinusOneButton_OnClick(object sender, EventArgs e)
-        {
-            Console.WriteLine("\nClicked -1 Button.");
-            DataGridViewRow row = cartDataGrid.CurrentRow;
-            int count = int.Parse((string) row.Cells[0].Value);
-
-            if (count > 1)
-            {
-                Console.WriteLine("Decreased count by 1.");
-                count--;
-                row.Cells[0].Value = count.ToString();
-                row.Cells[2].Value = Convert.ToDecimal(row.Cells[2].Value) * count;
-            }
-            else
-            {
-                Console.WriteLine("Count already at minimum; removing item.");
-                LinkedList<DataGridViewRow> newCart = new();
-
-                //Decrease count by 1.
-                count--;
-                row.Cells[0].Value = count.ToString();
-
-                //Iterates through all rows.
-                for (int i = 0; i < cartDataGrid.Rows.Count; i++)
-                {
-                    DataGridViewRow innerRow = cartDataGrid.Rows[i];
-
-                    if (Convert.ToInt16(innerRow.Cells[0].Value) != 0) newCart.AddLast(innerRow);
-                    else
-                    {
-                        foreach (MenuItem item in cartItems)
-                        {
-                            //If the ID matches, remove from internal list.
-                            if (item.ID == (string) innerRow.Cells[3].Value) cartItems.Remove(item);
-                        }
-                    }
-                }
-
-                //Resets cart then assigns newCart.
-                cartDataGrid.Rows.Clear();
-                cartDataGrid.Rows.AddRange(newCart.ToArray());
-            }
+            //Updates the total price and resets the item preview.
+            ResetPreview();
+            UpdateTotal();
         }
 
 
         //Code here will run once the form is displayed on the screen.
-        //No need to edit this part.
         private void formUI_Shown(object sender, EventArgs e)
         {
             Console.WriteLine("Windows Forms UI shown.\n");
+
             //Force-test; checks if JSON file and directory exists.
             ReadFile(GetDirectory("json"));
 
@@ -236,8 +120,6 @@ namespace FastfoodOrderingSystem
                 addToCartButton.Enabled = false;
                 purchaseButton.Enabled = false;
                 itemCountCounter.Enabled = false;
-                itemCountPlusOneButton.Enabled = false;
-                itemCountMinusOneButton.Enabled = false;
                 return;
             }
 
@@ -267,14 +149,59 @@ namespace FastfoodOrderingSystem
                 menuDataGrid.CurrentCell = nameCell;
                 menuDataGrid.CurrentRow.Height = menuDataGrid.CurrentRow.Cells[0].Size.Width;
 
-
                 Console.WriteLine("Attempting to add " + item.ID + "...");
             }
             Console.WriteLine("\nFFOS Ready.");
-            //Changes the selected cart item label to display the default value.
-            selectedCartItemLabel.Text = "Total: Php" + 0.00f.ToString();
 
-            //TEMP
+            //Changes the selected cart item label to display the default value (Php0).
+            UpdateTotal();
+
+            //Selects the first cell from the first row, then deselects it.
+            menuDataGrid.CurrentCell = menuDataGrid[0, 0];
+            menuDataGrid.ClearSelection();
+            ResetPreview();
+        }
+
+
+        #endregion
+
+        #region Shortcut functions
+        //Resets the item preview to become blank and unclickable.
+        private void ResetPreview()
+        {
+            Console.WriteLine("Preview reset.");
+            itemNameLabel.Text = null;
+            itemPriceLabel.Text = "Php0";
+            itemCountCounter.Value = 0;
+            itemImage.Image = null;
+
+            itemCountCounter.Enabled = false;
+            addToCartButton.Enabled = false;
+        }
+
+        //Updates the total price of all items in the cart.
+        private void UpdateTotal()
+        {
+            Console.WriteLine("Total updated.");
+            decimal total = 0;
+
+            //For every item in the internal list...
+            foreach (MenuItem item in cartItems)
+            {
+                //For every item in the displayed list...
+                foreach (DataGridViewRow row in cartDataGrid.Rows)
+                {
+                    //If the displayed list's item's ID matches the internal one...
+                    if ((string)row.Cells[3].Value == item.ID)
+                    {
+                        //total price = item price * number of items
+                        total += Convert.ToDecimal(item.Price) * Convert.ToDecimal(row.Cells[0].Value);
+                    }
+                }
+            }
+
+            //Changes the text on the total price label.
+            selectedCartItemLabel.Text = "Total: Php" + total.ToString();
         }
         #endregion
     }

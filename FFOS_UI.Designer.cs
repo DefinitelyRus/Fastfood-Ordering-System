@@ -38,8 +38,6 @@
             this.ItemNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemPriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedCartItemLabel = new System.Windows.Forms.Label();
-            this.itemCountMinusOneButton = new System.Windows.Forms.Button();
-            this.itemCountPlusOneButton = new System.Windows.Forms.Button();
             this.purchaseButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cartDataGrid = new System.Windows.Forms.DataGridView();
@@ -176,34 +174,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.selectedCartItemLabel.Location = new System.Drawing.Point(6, 232);
             this.selectedCartItemLabel.Name = "selectedCartItemLabel";
-            this.selectedCartItemLabel.Size = new System.Drawing.Size(198, 23);
+            this.selectedCartItemLabel.Size = new System.Drawing.Size(270, 23);
             this.selectedCartItemLabel.TabIndex = 1;
             this.selectedCartItemLabel.Text = "Menu Item Name Here";
             this.selectedCartItemLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // itemCountMinusOneButton
-            // 
-            this.itemCountMinusOneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemCountMinusOneButton.Location = new System.Drawing.Point(246, 232);
-            this.itemCountMinusOneButton.Name = "itemCountMinusOneButton";
-            this.itemCountMinusOneButton.Size = new System.Drawing.Size(30, 23);
-            this.itemCountMinusOneButton.TabIndex = 2;
-            this.itemCountMinusOneButton.Text = "-1";
-            this.itemCountMinusOneButton.UseVisualStyleBackColor = true;
-            this.itemCountMinusOneButton.Click += new System.EventHandler(this.itemCountMinusOneButton_OnClick);
-            // 
-            // itemCountPlusOneButton
-            // 
-            this.itemCountPlusOneButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.itemCountPlusOneButton.Location = new System.Drawing.Point(210, 232);
-            this.itemCountPlusOneButton.Name = "itemCountPlusOneButton";
-            this.itemCountPlusOneButton.Size = new System.Drawing.Size(30, 23);
-            this.itemCountPlusOneButton.TabIndex = 3;
-            this.itemCountPlusOneButton.Text = "+1";
-            this.itemCountPlusOneButton.UseVisualStyleBackColor = true;
-            this.itemCountPlusOneButton.Click += new System.EventHandler(this.itemCountPlusOneButton_OnClick);
             // 
             // purchaseButton
             // 
@@ -222,8 +196,6 @@
             this.groupBox1.Controls.Add(this.cartDataGrid);
             this.groupBox1.Controls.Add(this.purchaseButton);
             this.groupBox1.Controls.Add(this.selectedCartItemLabel);
-            this.groupBox1.Controls.Add(this.itemCountPlusOneButton);
-            this.groupBox1.Controls.Add(this.itemCountMinusOneButton);
             this.groupBox1.Location = new System.Drawing.Point(402, 168);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(370, 261);
@@ -260,8 +232,6 @@
             this.cartDataGrid.ShowCellToolTips = false;
             this.cartDataGrid.Size = new System.Drawing.Size(358, 204);
             this.cartDataGrid.TabIndex = 5;
-            this.cartDataGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartDataGrid_RowSelected);
-            this.cartDataGrid.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartDataGrid_RowLeft);
             // 
             // cartItemQuantity
             // 
@@ -332,8 +302,6 @@
         private Button addToCartButton;
         public DataGridView menuDataGrid;
         public Label selectedCartItemLabel;
-        public Button itemCountMinusOneButton;
-        public Button itemCountPlusOneButton;
         public Button purchaseButton;
         private GroupBox groupBox1;
         public DataGridView cartDataGrid;
