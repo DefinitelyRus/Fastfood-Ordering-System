@@ -107,7 +107,31 @@ namespace FastfoodOrderingSystem
             //Imports MenuItems from JSON file.
             menuItems = ParseJson(ReadJson(GetDirectory("json")));
 
-            MessageBox.Show("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis viverra dapibus massa eget molestie. Donec gravida, ex a feugiat fringilla, ipsum leo porta lectus, a fermentum elit nunc auctor ante. Nunc vestibulum imperdiet interdum. Aenean et tellus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque urna, accumsan id massa a, maximus tristique quam. In rutrum auctor tellus euismod fringilla. Morbi laoreet tellus eu mauris sagittis, quis efficitur est lobortis. Proin interdum, nisi ut tempor faucibus, urna risus efficitur velit, eget fermentum neque eros ac nulla. Nam quis diam eget ante venenatis lobortis. Nunc ullamcorper a lacus ut auctor. Sed et laoreet enim. Nulla non libero quis lorem semper dignissim. Vivamus dignissim nisl ligula, vitae bibendum ipsum maximus non.\n\nNullam mattis, magna sed accumsan laoreet, odio nisi ultrices nunc, sed eleifend ante turpis at dolor.Ut condimentum mi nec velit feugiat tincidunt.Nunc viverra est sit amet lectus maximus, et commodo ligula aliquam.Nullam a risus suscipit, pharetra dolor in, ultrices mi.Etiam ut porttitor ipsum.Nulla facilisi.Praesent nec velit mollis, vehicula diam pellentesque, mattis lacus.Suspendisse vulputate enim lacus, quis ultricies urna rutrum vel.Vestibulum a mi et erat efficitur malesuada.Praesent id leo et libero fringilla blandit.Nunc faucibus felis quis dui mattis mollis.Proin luctus blandit sem, vitae hendrerit elit tempus vitae.Mauris augue eros, elementum sit amet justo feugiat, feugiat aliquet tellus.Nullam ante urna, venenatis in posuere vitae, luctus quis felis.Proin venenatis, velit et tristique laoreet, ligula elit hendrerit risus, vel lacinia nulla felis luctus nibh.");
+            MessageBox.Show("Rules to be observed in a table service:\n\n" +
+				"- Never reach in front of a guest, nor across one person in order to\n" +
+				"  serve another.\n\n" +
+				"- Place and remove all food from the left of the guest.\n\n" +
+				"- Go clockwise (if possible) when you are covering the table and when\n" +
+				"  you are serving and clearing and that always forwards.\n\n" +
+				"- Women are usually served first. If it is an honorary dinner, of course,\n" +
+				"  the guest of honor is served first. Otherwise, age and status of the\n" +
+				"  guest determine the sequence, with older or more distinguished\n" +
+				"  guests served first. The host is always served after his or her guests.\n" +
+				"  When children are present at the table, serve them as quickly\n" +
+				"  as possible to maintain peace.\n\n" +
+				"- Place a milk glass at the right of and below the water glass.\n\n" +
+				"- In order to reach a guest, never stretch in front of them or across one\n" +
+				"  person to assist someone else.\n\n" +
+				"- Serve the main dish or entrée at the center of the cover in front of the\n" +
+				"  guest.\n\n" +
+				"- Always carry the cultery items, glasses, cuos, and small serving with\n" +
+				"  the tray not with the hand.\n\n" +
+				"- Set fruit juice and cocktail glasses, cereal dishes, soup bowls, and\n" +
+				"  dessert dishes on small plates before placing them in the center of the\n" +
+				"  cover between the knife and the fork.\n\n" +
+				"- Place individual serving trays of bread and rolls above and to the left\n" +
+				"  of the forks. Place a tray or basket of bread for the use of several\n" +
+				"  guests toward the center of the table.", "Rules");
 
             //Sets the data grid's size to match the menuItem array.
             if (menuItems != null) menuDataGrid.RowCount = menuItems.Length;
